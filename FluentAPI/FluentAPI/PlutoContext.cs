@@ -36,6 +36,15 @@ namespace FluentAPI
                 .WithMany(t => t.Courses)
                 .Map(m => m.ToTable("CourseTags"));
 
+            modelBuilder.Entity<Course>()
+                .HasRequired(c => c.Cover)
+                .WithRequiredPrincipal(c => c.Course);
+
+            //This is the same of the last configuration but in opposite way
+            //modelBuilder.Entity<Cover>() 
+            //    .HasRequired(c => c.Course)
+            //    .WithRequiredDependent(c => c.Cover);
+
             base.OnModelCreating(modelBuilder);
         }
     }
