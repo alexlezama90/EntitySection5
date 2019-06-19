@@ -1,10 +1,8 @@
 namespace CodeFirstExistingDatabase
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Courses")]
     public partial class Course
@@ -19,6 +17,7 @@ namespace CodeFirstExistingDatabase
 
         public string Name { get; set; }
 
+        //[Required] We delted (commented) it and deleted it's migration cause we were going to do the same with Fluent API
         public string Description { get; set; }
 
         public int Level { get; set; }
